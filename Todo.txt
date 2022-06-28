@@ -3,3 +3,8 @@ Questions:
 simply means "database"?
 - I expect transaction will need to be clarified more... what fields it has, whether it has an interface and/or inheritance
 - note that there is a dispose_on_close option for jframes that aren't the main window
+
+TODO:
+- get data, perhaps by implementing a transaction reader for load lists, invoices, csv
+- save data to permanent file, read/write on application open/close
+- create desired reports

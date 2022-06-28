@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Label;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class AllTransactionDisplay implements TransactionDisplay {
 		display.setSize(START_SIZE);
 		
 		transactionPanel.setLayout(new BoxLayout(transactionPanel, BoxLayout.Y_AXIS));
+		transactionPanel.setBackground(Color.white);
 		display.add(transactionPanel);
 	}
 	
