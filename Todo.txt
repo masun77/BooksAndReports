@@ -1,0 +1,5 @@
+Questions:
+- does the book do the filtering? or is that another layer between the book and the displays, where "book"
+simply means "database"?
+- I expect transaction will need to be clarified more... what fields it has, whether it has an interface and/or inheritance
+- note that there is a dispose_on_close option for jframes that aren't the main window
