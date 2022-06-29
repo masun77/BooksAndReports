@@ -20,6 +20,7 @@ public class CSVTransactionReader implements TransactionReader {
 	private final int FROM_INDEX = 2;
 	private final int TO_INDEX = 3;
 	private final int NOTES_INDEX = 4;
+	private final int CATEGORY_INDEX = 5;
 
 	@Override
 	public void setSource(String filename) {
@@ -65,8 +66,9 @@ public class CSVTransactionReader implements TransactionReader {
         	String toAcc = row[TO_INDEX];
         	String notes = row[NOTES_INDEX];
         	Date date = DateImp.parseDate(row[DATE_INDEX]);
+        	String category = row[CATEGORY_INDEX];
 
-			Transaction trans = new Transaction(value, from, toAcc, notes, date);
+			Transaction trans = new Transaction(value, from, toAcc, notes, date, category);
 			allTrans.add(trans);
         }
 		return allTrans;

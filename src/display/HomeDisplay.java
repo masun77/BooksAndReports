@@ -49,9 +49,7 @@ public class HomeDisplay implements ApplicationDisplay {
 		td.addBook(currentBook);
 		mainPanel.remove(0);
 		mainPanel.add(td.getMainPanel(), 0);
-		
-		System.out.println(mainPanel.getComponentCount());
-	}
+		}
 	
 	@Override
 	public void showApplication() {

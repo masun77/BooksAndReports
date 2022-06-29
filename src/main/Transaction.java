@@ -7,6 +7,7 @@ public class Transaction {
 	private String toAccount = "To: ";
 	private String note = "notes: ";
 	private Date date = new DateImp();
+	private String category = "";
 	
 	public Transaction() {}
 	
@@ -16,6 +17,15 @@ public class Transaction {
 		toAccount = to;
 		note = nt;
 		date = d;
+	}
+	
+	public Transaction(float v, String from, String to, String nt, Date d, String cat) {
+		value = v;
+		fromAccount = from;
+		toAccount = to;
+		note = nt;
+		date = d;
+		category = cat;
 	}
 	
 	public String getOtherParty() {
@@ -60,6 +70,8 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return date.getDateMMDDYYYY() + ": $" + value + " From: " + fromAccount + " To: " + toAccount + " Notes: " + note;
+		return date.getDateMMDDYYYY() + ": $" + value + " From: " + fromAccount + " To: " + toAccount 
+				+ " Category: " + category 
+				+ " Notes: " + note;
 	}
 }
