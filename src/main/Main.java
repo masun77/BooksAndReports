@@ -1,16 +1,30 @@
 package main;
 
+import database.Book;
+import database.DatabaseV1;
+import display.AllTransactionDisplay;
+import display.ApplicationDisplay;
+import display.HomeDisplay;
+import display.TransactionDisplay;
+import importExport.CSVTransactionReader;
+import importExport.TransactionReader;
+
 public class Main {
 	
 	public static void main(String[] args) {
 		Book book = new DatabaseV1();
 		
-		book.addTransaction(new Transaction());
-		book.addTransaction(new Transaction(3865.75f,"Sunday Marin", "cash",""));
+		TransactionReader tr = new CSVTransactionReader();
+		tr.setSource("data/Income.6.29.22.csv");
+		book.addTransactions(tr.getTransactions());
+
+		ApplicationDisplay app = new HomeDisplay(book);
 
 		TransactionDisplay allDisp = new AllTransactionDisplay();
-		allDisp.addBook(book);
 		
-		allDisp.showDisplay();
+		app.addHomeDisplay(allDisp);
+		app.addTransactionDisplay(new AllTransactionDisplay(), "helper");
+		
+		app.showApplication();
 	}
 }

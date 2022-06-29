@@ -6,14 +6,16 @@ public class Transaction {
 	private String fromAccount = "from: ";
 	private String toAccount = "To: ";
 	private String note = "notes: ";
+	private Date date = new DateImp();
 	
 	public Transaction() {}
 	
-	public Transaction(float v, String from, String to, String nt) {
+	public Transaction(float v, String from, String to, String nt, Date d) {
 		value = v;
 		fromAccount = from;
 		toAccount = to;
 		note = nt;
+		date = d;
 	}
 	
 	public String getOtherParty() {
@@ -58,6 +60,6 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return "$" + value + " From: " + fromAccount + " To: " + toAccount + " Notes: " + note;
+		return date.getDateMMDDYYYY() + ": $" + value + " From: " + fromAccount + " To: " + toAccount + " Notes: " + note;
 	}
 }

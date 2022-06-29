@@ -1,6 +1,9 @@
-package main;
+package database;
 
 import java.util.ArrayList;
+
+import display.TransactionDisplay;
+import main.Transaction;
 
 public interface Book {
 	

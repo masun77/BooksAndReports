@@ -1,6 +1,7 @@
-package main;
+package display;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Label;
 import java.util.ArrayList;
@@ -9,24 +10,28 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class AllTransactionDisplay implements TransactionDisplay {
-	private JFrame display = new JFrame();
+import database.Book;
+import main.Transaction;
+
+public class AllTransactionDisplay extends JFrame implements TransactionDisplay {
 	private final Dimension START_SIZE = new Dimension(1000,700);
 	private JPanel transactionPanel = new JPanel();
 	private Book book;
 	
+	public AllTransactionDisplay() {
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setSize(START_SIZE);
+		
+		DisplayUtilities.setAllSizes(transactionPanel, START_SIZE);
+		transactionPanel.setLayout(new BoxLayout(transactionPanel, BoxLayout.Y_AXIS));
+		transactionPanel.setBackground(Color.white);
+		this.add(transactionPanel);
+	}
+
 	public void addBook(Book b) {
 		book = b;
 		book.addListeningDisplay(this);
-	}
-	
-	public AllTransactionDisplay() {
-		display.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		display.setSize(START_SIZE);
-		
-		transactionPanel.setLayout(new BoxLayout(transactionPanel, BoxLayout.Y_AXIS));
-		transactionPanel.setBackground(Color.white);
-		display.add(transactionPanel);
+		updatePanel();
 	}
 	
 	@Override
@@ -47,13 +52,18 @@ public class AllTransactionDisplay implements TransactionDisplay {
 	@Override
 	public void showDisplay() {
 		updatePanel();
-		display.setVisible(true);
+		this.setVisible(true);
+	}
+	
+	@Override
+	public void dispose() {
+		book.removeListeningDisplay(this);
+		super.dispose();
 	}
 
 	@Override
 	public void disposeOfDisplay() {
-		display.dispose();
-		book.removeListeningDisplay(this);
+		this.dispose();
 	}	
 	
 	private class TransactionLabel extends Label {
@@ -61,10 +71,12 @@ public class AllTransactionDisplay implements TransactionDisplay {
 		
 		public TransactionLabel(String s) {
 			super(s);
-			this.setSize(maxSize);
-			this.setPreferredSize(maxSize);
-			this.setMaximumSize(maxSize);
-			this.setMinimumSize(maxSize);
+			DisplayUtilities.setAllSizes(this, maxSize);
 		}
+	}
+	
+	@Override
+	public Container getMainPanel() {
+		return transactionPanel;
 	}
 }
