@@ -1,4 +1,4 @@
-package main;
+package database;
 
 public class Transaction {
 	private String otherParty = "";
@@ -7,6 +7,23 @@ public class Transaction {
 	private String toAccount = "To: ";
 	private String note = "notes: ";
 	private Date date = new DateImp();
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	private String category = "";
 	
 	public Transaction() {}

@@ -1,6 +1,8 @@
 package display;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -40,7 +42,10 @@ public class HomeDisplay implements ApplicationDisplay {
 		transDisplays.add(td);
 		td.addBook(currentBook);
 		
-		sidePanel.add(new JButton(name)); // todo working on
+		JButton funcButton = new JButton(name);
+		funcButton.addActionListener(new FunctionListener(td));
+		
+		sidePanel.add(funcButton); 
 	}
 	
 	@Override
@@ -49,7 +54,7 @@ public class HomeDisplay implements ApplicationDisplay {
 		td.addBook(currentBook);
 		mainPanel.remove(0);
 		mainPanel.add(td.getMainPanel(), 0);
-		}
+	}
 	
 	@Override
 	public void showApplication() {
@@ -60,6 +65,20 @@ public class HomeDisplay implements ApplicationDisplay {
 	@Override
 	public void removeTransactionDisplay(TransactionDisplay td) {
 		td.disposeOfDisplay();
+	}
+	
+	private class FunctionListener implements ActionListener {
+		private TransactionDisplay functionDisplay;
+		
+		public FunctionListener(TransactionDisplay td) {
+			functionDisplay = td;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			functionDisplay.showDisplay();
+		}
+		
 	}
 
 }

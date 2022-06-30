@@ -1,1 +1,7 @@
-Income|Farmers Market|Direct|Wholesale
+Income|null|Farmers Market|Direct|Wholesale
+Farmers Market|Income
+Direct|Income
+Wholesale|Income
+Capitol Mall Market|Farmers Market
+Sunday Marin Market|Farmers Market
+Thursday Marin Market|Farmers Market

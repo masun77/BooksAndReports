@@ -3,7 +3,6 @@ package database;
 import java.util.ArrayList;
 
 import display.TransactionDisplay;
-import main.Transaction;
 
 public class DatabaseV1 implements Book {
 	private ArrayList<Transaction> transactions = new ArrayList<Transaction>();

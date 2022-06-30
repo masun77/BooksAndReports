@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import database.Book;
-import main.Transaction;
+import database.Transaction;
 
 public class AllTransactionDisplay extends JFrame implements TransactionDisplay {
 	private final Dimension START_SIZE = new Dimension(1000,700);

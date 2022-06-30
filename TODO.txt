@@ -1,14 +1,17 @@
 Questions and ideas:
 - the book should do the filtering - otherwise a lot of functions will be duplicated in 
 reports using the data
-- factory or so for reports - all things are the same except the data they display. Or maybe think of reports more like one screen from which you can add various filters? but you can also only ever display by 2 groupings at once - I mean, in a table, you can either show money per customers x time, or money customers x item... not money per customer per item... can you? might that be better shown in a chart? 
+- factory or so for reports - all things are the same except the data they display. 
+Or maybe think of reports more like one screen from which you can add various filters? 
+but you can also only ever display by 2 groupings at once - I mean, in a table, you can either show money per customers x time, 
+or money customers x item... not money per customer per item... can you? might that be better shown in a chart? 
 
 TODO:
 - create desired reports
 - save data to permanent file, read/write on application open/close
-- get data from invoices, load lists
+- get data from invoices, load lists, manually entered (single, invoice, load list); button for csv import
 - visual display
-- editing
+- editing of transactions
 - error checking and such
 
 report on yields - yields, sales by item, sales by customer

@@ -1,4 +1,4 @@
-package main;
+package database;
 
 import java.util.HashMap;
 
@@ -67,6 +67,11 @@ public class DateImp implements Date {
 	@Override
 	public String getMonthName() {
 		return monthToMonthName.get(monthOfYear);
+	}
+	
+	@Override
+	public String getMonthName(int month) {
+		return monthToMonthName.get(month);
 	}
 
 	@Override

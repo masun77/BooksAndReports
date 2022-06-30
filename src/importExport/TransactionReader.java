@@ -1,11 +1,14 @@
 package importExport;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-import main.Transaction;
+import database.Category;
+import database.Transaction;
 
 public interface TransactionReader {
 	public void setSource(String filename);
 	public ArrayList<Transaction> getTransactions();
-	public void getCategories();
+	public Map<String, Category> getCategories();
+	public void setCategorySource(String filename);
 }

@@ -1,4 +1,4 @@
-package main;
+package database;
 
 /**
  * Date interface.
@@ -21,6 +21,12 @@ public interface Date {
 	 * @return the month name, January through December
 	 */
 	public String getMonthName();
+	
+	/**
+	 * @param month integer representing the month of the year from 1 (January) to 12 (December)
+	 * @return the month name, January through December
+	 */
+	public String getMonthName(int month);
 	
 	/**
 	 * @return the month name as a three-letter abbreviation, plus the day of the month
