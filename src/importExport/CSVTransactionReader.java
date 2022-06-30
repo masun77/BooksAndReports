@@ -20,11 +20,11 @@ public class CSVTransactionReader implements TransactionReader {
 	private String sourceFileName = "";
 	private String categoryFileName = "backups/categories.csv";
 	private final int DATE_INDEX = 0;
-	private final int VALUE_INDEX = 1;
-	private final int FROM_INDEX = 2;
-	private final int TO_INDEX = 3;
-	private final int NOTES_INDEX = 4;
-	private final int CATEGORY_INDEX = 5;
+	private final int FROM_INDEX = 1;
+	private final int CATEGORY_INDEX = 2;
+	private final int VALUE_INDEX = 3;
+	private final int TO_INDEX = 4;
+	private final int NOTES_INDEX = 5;
 	private final int CAT_NAME_INDEX = 0;
 	private final int CAT_PARENT_INDEX = 1;
 
