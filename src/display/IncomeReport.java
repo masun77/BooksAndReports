@@ -14,8 +14,8 @@ import database.Book;
 import main.Transaction;
 
 public class IncomeReport extends JFrame implements TransactionDisplay {
-	private final Dimension START_SIZE = new Dimension(500,300);
-	private JPanel reportPanel = new JPanel();
+	private final Dimension START_SIZE = new Dimension(500,500);
+	private JPanel reportPanel = new VPanel();
 	private Book book;
 	
 	public IncomeReport() {
@@ -23,7 +23,6 @@ public class IncomeReport extends JFrame implements TransactionDisplay {
 		this.setSize(START_SIZE);
 		
 		DisplayUtilities.setAllSizes(reportPanel, START_SIZE);
-		reportPanel.setLayout(new BoxLayout(reportPanel, BoxLayout.Y_AXIS));
 		reportPanel.setBackground(Color.white);
 		this.add(reportPanel);
 	}
@@ -44,7 +43,7 @@ public class IncomeReport extends JFrame implements TransactionDisplay {
 			reportPanel.removeAll();
 			ArrayList<Transaction> transacs = book.getTransactions();
 			
-			
+			// todo
 			
 			for (int t = 0; t < transacs.size(); t++) {
 				reportPanel.add(new TransactionLabel(transacs.get(t).toString()));
@@ -68,15 +67,6 @@ public class IncomeReport extends JFrame implements TransactionDisplay {
 	public void disposeOfDisplay() {
 		this.dispose();
 	}	
-	
-	private class TransactionLabel extends Label {
-		private final Dimension maxSize = new Dimension(500,40);
-		
-		public TransactionLabel(String s) {
-			super(s);
-			DisplayUtilities.setAllSizes(this, maxSize);
-		}
-	}
 	
 	@Override
 	public Container getMainPanel() {
