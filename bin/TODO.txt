@@ -1,0 +1,29 @@
+Questions:
+- the book should do the filtering - otherwise a lot of functions will be duplicated in 
+reports using the data
+- factory or so for reports - all things are the same except the data they display
+
+TODO:
+- create desired reports
+- save data to permanent file, read/write on application open/close
+- get data from invoices, load lists
+- visual display
+- editing
+- error checking and such
+
+report on yields - yields, sales by item, sales by customer
+	summary spreadsheet
+	sheet for yields - each item, total yield
+		get from garen - each item, total planted
+		ratio and/or %
+	sheet for sales by item - 
+		get all sales from load lists
+		get from wholesale invoices
+		report by item
+	sales by customer
+		process in above step, sales by customer
+	
+///////////***************////////////////
+NOTES:
+It's frustrating to have to work online, since sometimes the internet goes down. 
+Pshhh. I'm writing an app Right now. Esp since I can do it really fast having done the one at Riverdog. 

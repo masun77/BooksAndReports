@@ -9,15 +9,18 @@ or money customers x item... not money per customer per item... can you? might t
 TODO:
 - create desired reports
 - save data to permanent file, read/write on application open/close
-- get data from invoices, load lists, manually entered (single, invoice, load list); button for csv import
-- visual display
+- get data from invoices, load lists, manually entered (single, invoice, load list); 
+	functionbutton for import and chose methods, files
+- visual display as a gift - clean, beautiful, easy to use
+	scrollbars? packing? 
 - editing of transactions
+- entering of transactions singly or in forms - invoice, load list, etc
+- print invoices nicely
 - error checking and such
 
-report on yields - yields, sales by item, sales by customer
-	summary spreadsheet
+reports
 	sheet for yields - each item, total yield
-		get from garen - each item, total planted
+		get from garden data - each item, total planted
 		ratio and/or %
 	sheet for sales by item - 
 		get all sales from load lists

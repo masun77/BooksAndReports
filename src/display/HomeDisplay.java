@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,6 +47,7 @@ public class HomeDisplay implements ApplicationDisplay {
 		funcButton.addActionListener(new FunctionListener(td));
 		
 		sidePanel.add(funcButton); 
+		sidePanel.add(Box.createRigidArea(new Dimension(1,10)));
 	}
 	
 	@Override
