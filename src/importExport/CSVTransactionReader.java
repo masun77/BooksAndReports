@@ -11,10 +11,10 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
-import database.Category;
-import database.Date;
-import database.DateImp;
-import database.Transaction;
+import dataManipulation.Category;
+import dataManipulation.Date;
+import dataManipulation.DateImp;
+import dataManipulation.Transaction;
 
 public class CSVTransactionReader implements TransactionReader {
 	private String sourceFileName = "";

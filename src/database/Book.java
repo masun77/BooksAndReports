@@ -2,6 +2,7 @@ package database;
 
 import java.util.ArrayList;
 
+import dataManipulation.Transaction;
 import display.TransactionDisplay;
 
 public interface Book {

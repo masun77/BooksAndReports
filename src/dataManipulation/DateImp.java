@@ -1,4 +1,4 @@
-package database;
+package dataManipulation;
 
 import java.util.HashMap;
 
@@ -105,6 +105,10 @@ public class DateImp implements Date {
 	@Override
 	public String getMMDD() {
 		return zerosHelper(monthOfYear) + "/" + zerosHelper(dayOfMonth);
+	}
+	
+	public boolean equalsDate(Date d) {
+		return year == d.getYear() && monthOfYear == d.getMonthofYear() && dayOfMonth == d.getDayOfMonth();
 	}
 	
 	public static Date parseDate(String d) {

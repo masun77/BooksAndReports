@@ -1,4 +1,4 @@
-package database;
+package dataManipulation;
 
 /**
  * Date interface.
@@ -52,4 +52,11 @@ public interface Date {
 	 * @return the day as a number, 1-31
 	 */
 	public int getDayOfMonth();
+	
+	/**
+	 * Checks whether this date equals the given date.
+	 * @param d the Date to compare to
+	 * @return true if the dates are equal, false otherwise
+	 */
+	public boolean equalsDate(Date d);
 }

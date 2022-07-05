@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import database.Category;
+import dataManipulation.Category;
 
 class CSVReaderTests {
 

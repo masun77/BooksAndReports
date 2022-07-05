@@ -10,11 +10,11 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import dataManipulation.Category;
+import dataManipulation.Date;
+import dataManipulation.DateImp;
+import dataManipulation.Transaction;
 import database.Book;
-import database.Category;
-import database.Date;
-import database.DateImp;
-import database.Transaction;
 import importExport.CSVTransactionReader;
 
 public class IncomeReport extends JFrame implements TransactionDisplay {

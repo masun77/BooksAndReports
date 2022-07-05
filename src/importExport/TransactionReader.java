@@ -3,8 +3,8 @@ package importExport;
 import java.util.ArrayList;
 import java.util.Map;
 
-import database.Category;
-import database.Transaction;
+import dataManipulation.Category;
+import dataManipulation.Transaction;
 
 public interface TransactionReader {
 	public void setSource(String filename);

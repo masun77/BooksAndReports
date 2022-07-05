@@ -1,4 +1,4 @@
-package database;
+package dataManipulation;
 
 public class Transaction {
 	private String otherParty = "";

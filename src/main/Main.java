@@ -7,7 +7,6 @@ import display.ApplicationDisplay;
 import display.FilterReport;
 import display.HomeDisplay;
 import display.IncomeReport;
-import display.TransactionDisplay;
 import importExport.CSVTransactionReader;
 import importExport.TransactionReader;
 

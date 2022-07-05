@@ -1,28 +1,42 @@
 package display;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Map;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dataManipulation.Category;
+import dataManipulation.Date;
+import dataManipulation.DateImp;
+import dataManipulation.Filter;
+import dataManipulation.FilterFact;
+import dataManipulation.FilterFactory;
+import dataManipulation.Transaction;
 import database.Book;
-import database.Category;
-import database.Date;
-import database.DateImp;
-import database.Transaction;
 import importExport.CSVTransactionReader;
 
 public class FilterReport extends JFrame implements TransactionDisplay {
 	private final Dimension START_SIZE = new Dimension(500,500);
+	private final Dimension FILTER_SIZE = new Dimension(100,40);
+	private final Dimension LABEL_SIZE = new Dimension(150,40);
 	private JPanel reportPanel = new VPanel();
 	private Book book;
+	JPanel filterPanel = new VPanel();
+	private ArrayList<Filter> filters = new ArrayList<>();
+	private JPanel newFilterPanel = new HPanel();
+	private FilterFactory filterFact = new FilterFact();
+	private Filter currentFilter;
 	
 	public FilterReport() {
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -46,20 +60,27 @@ public class FilterReport extends JFrame implements TransactionDisplay {
 	}
 	
 	private void initialize() {
-		// add drop down menu for filter by __ < date, category, from account, to account > 
-		// textbox for date / category / from / to <- validate? 
-		Label filterLabel = new Label("Filter by: ");
-		JTextField filterType = new JTextField("date/category/from/to");
-		JTextField filterSelection = new JTextField("Income/expense/etc");
+		Label filterLabel = new Label("Filter transactions by: ");
+		filterLabel.setMaximumSize(LABEL_SIZE);
+		String[] filterOptions = { "Date", "Category", "From Account", "To Account"};
+		JComboBox<String> filterType = new JComboBox<>(filterOptions);
+		filterType.setSelectedIndex(0);
+		filterType.setMaximumSize(FILTER_SIZE);
+		filterType.addActionListener(new FilterTypeListener(filterType));
+		
+		currentFilter = filterFact.getFilterFor((String)filterType.getSelectedItem());
+		Component filterSelection = currentFilter.getInputComponent();
+
 		JButton addFilterBtn = new JButton("Add Filter");
-		JPanel newFilterPanel = new HPanel();
+		addFilterBtn.addActionListener(new AddFilterListener());
+		
 		newFilterPanel.add(filterLabel);
 		newFilterPanel.add(filterType);
 		newFilterPanel.add(filterSelection);
 		newFilterPanel.add(addFilterBtn);
 
 		JButton clearFiltersBtn = new JButton("Clear Filters");
-		JPanel filterPanel = new VPanel();
+		
 		filterPanel.add(newFilterPanel);
 		filterPanel.add(clearFiltersBtn);
 		
@@ -127,12 +148,33 @@ public class FilterReport extends JFrame implements TransactionDisplay {
 		return reportPanel;
 	}
 	
-	private class MonthLabel extends Label {
-		private final Dimension maxSize = new Dimension(100,40);
+	private class FilterTypeListener implements ActionListener {
+		private JComboBox<String> combo;
 		
-		public MonthLabel(String s) {
-			super(s);
-			DisplayUtilities.setAllSizes(this, maxSize);
+		public FilterTypeListener(JComboBox<String> c) {
+			combo = c;
 		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			newFilterPanel.remove(2);
+			currentFilter = filterFact.getFilterFor((String)combo.getSelectedItem());
+			Component filterSelection = currentFilter.getInputComponent();
+			newFilterPanel.add(filterSelection, 2);
+			reportPanel.validate();
+		}
+		
 	}
-}
+	
+	private class AddFilterListener implements ActionListener {		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			filters.add(currentFilter);
+			
+			
+			// add visual line listing filter above 'clear filters' button
+			// reset newFilterPanel
+		}
+		
+	}
+ }
